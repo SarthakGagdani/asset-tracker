@@ -90,7 +90,7 @@ class App extends Component {
       this.setState({ loading: false })
     }).on('error', function(error, receipt) {
       alert('Transaction Rejected')
-      window.location.replace(window.location.href)
+      setTimeout(() => {  window.location.replace(window.location.href) }, 5000);
     });
     
   }
@@ -104,7 +104,7 @@ class App extends Component {
       this.setState({ loading: false })
     }).on('error', function(error, receipt) {
       alert('Transaction Rejected');
-      window.location.replace(window.location.href)
+      setTimeout(() => {  window.location.replace(window.location.href) }, 5000);
     });
     
   }
@@ -118,7 +118,7 @@ class App extends Component {
       this.setState({ loading: false })
     }).on('error', function(error, receipt) {
       alert('Transaction Rejected')
-      window.location.replace(window.location.href)
+      setTimeout(() => {  window.location.replace(window.location.href) }, 5000);
     });
   }
 
