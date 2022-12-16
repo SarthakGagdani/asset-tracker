@@ -86,8 +86,13 @@ class App extends Component {
     }).once('receipt', async (receipt) => {
       this.setState({ contractAddress: receipt.contractAddress })
       await this.loadAsset()
+      window.location.replace(`http://localhost:3000?address=${receipt.contractAddress}`)
       this.setState({ loading: false })
-    })
+    }).on('error', function(error, receipt) {
+      alert('Transaction Rejected')
+      window.location.replace(window.location.href)
+    });
+    
   }
 
   sendAsset = async (to) => {
@@ -97,7 +102,11 @@ class App extends Component {
     }).once('receipt', async (receipt) => {
       await this.loadAsset()
       this.setState({ loading: false })
-    })
+    }).on('error', function(error, receipt) {
+      alert('Transaction Rejected');
+      window.location.replace(window.location.href)
+    });
+    
   }
 
   receiveAsset = async () => {
@@ -107,7 +116,10 @@ class App extends Component {
     }).once('receipt', async (receipt) => {
       await this.loadAsset()
       this.setState({ loading: false })
-    })
+    }).on('error', function(error, receipt) {
+      alert('Transaction Rejected')
+      window.location.replace(window.location.href)
+    });
   }
 
   renderContent() {
